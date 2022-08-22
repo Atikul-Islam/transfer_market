@@ -102,6 +102,8 @@ document.getElementById('calculate-total').addEventListener('click',function(){
     totalInput.innerText = totalplayerexpensesInt + managerAmountInt + coachAmountInt;
 
     inputValidation();
+
+    
 })
 
 function inputValidation() {
