@@ -44,12 +44,31 @@ document.getElementById('total-player-cost').addEventListener('click',function()
     
     const totalPlayerCost = totalCount*perPlayerAmount;
 
-    const totalPlayerCostField = document.getElementById('total-players-cost');
-    const totalplayerscost = totalPlayerCostField.innerText;
-    totalPlayerCostField.innerText = totalPlayerCost;
+    const totalPlayerexpensesField = document.getElementById('total-player-expenses');
+    const totalplayerexpenses = totalPlayerexpensesField.innerText;
+    totalPlayerexpensesField.innerText = totalPlayerCost;
     
 })
 
+document.getElementById('calculate-total').addEventListener('click',function(){
+    const totalPlayerexpensesField = document.getElementById('total-player-expenses');
+    const totalplayerexpenses = totalPlayerexpensesField.innerText;
+    const totalplayerexpensesInt = parseInt(totalplayerexpenses);
+
+    const managerInput = document.getElementById('manager-amount');
+    const managerAmount = managerInput.value;
+    const managerAmountInt = parseInt(managerAmount);
+    
+    
+    const coachInput = document.getElementById('coach-amount');
+    const coachAmount = coachInput.value;
+    const coachAmountInt = parseInt(coachAmount);
+
+    const totalInput = document.getElementById('total');
+    const totalAmount = totalInput.innerText;
+
+    totalInput.innerText = totalplayerexpensesInt + managerAmountInt + coachAmountInt;
+})
 
 
 /*document.getElementById('select1').addEventListener('click',function(){
