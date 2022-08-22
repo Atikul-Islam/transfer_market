@@ -1,14 +1,81 @@
-document.getElementById('select1').addEventListener('click',function(){
+const selectedPlayerArray = [];
+
+
+function playerList(player){
+    // console.log(player)
+    const selectedList = document.getElementById('selected-list');
+    selectedList.innerText = '';
+
+    if (player.length < 6) {
+        for(let i = 0; i < player.length; i++){
+            // console.log(selectedPlayerArray[0])
+            const li = document.createElement('li');
+            li.innerText = selectedPlayerArray[i];
+            selectedList.appendChild(li);
+            
+        }
+    } 
+    else {
+        alert('no')
+    }
+}
+
+function getSelected(element){
+    // console.log(element.parentNode.children);
+    // console.log(element.parentNode.children[1].innerText);
+
+    const playerName = element.parentNode.children[1].innerText;
+    
+    selectedPlayerArray.push(playerName);
+    // console.log(selectedPlayerArray)
+    // console.log(selectedPlayerArray.length)
+    
+    document.getElementById('player-count').innerText = selectedPlayerArray.length;
+
+    playerList(selectedPlayerArray);
+}
+
+document.getElementById('total-player-cost').addEventListener('click',function(){
+    const playerCountField = document.getElementById('player-count');
+    const totalCount = playerCountField.innerText;
+    
+    const perPlayerField = document.getElementById('per-player-amount');
+    const perPlayerAmount = perPlayerField.value;
+    
+    const totalPlayerCost = totalCount*perPlayerAmount;
+
+    const totalPlayerCostField = document.getElementById('total-players-cost');
+    const totalplayerscost = totalPlayerCostField.innerText;
+    totalPlayerCostField.innerText = totalPlayerCost;
+    
+})
+
+
+
+/*document.getElementById('select1').addEventListener('click',function(){
     const pl = document.getElementById("leo");
     const pl1 = pl.innerText;
 
     const list1 = document.getElementById('selected-list');
-    const li = document.createElement('li');
-    li.innerText = pl1;
-    list1.appendChild(li);
+    
+    let playerList = [];
+    playerList.push(list1);
+    console.log(playerList.length);
+    if(playerList.length<=4){
+        const li = document.createElement('li');
+        li.innerText = pl1;
+        list1.appendChild(li); 
+    }
+    else{
+        alert('you can not add more than 5 players');
+    }
     const select = document.getElementById('select1');
     select.setAttribute('disabled',true);
 })
+
+
+
+
 document.getElementById('select2').addEventListener('click',function(){
     const pl = document.getElementById("cr7");
     const pl1 = pl.innerText;
@@ -94,7 +161,8 @@ document.getElementById('select9').addEventListener('click',function(){
     const li = document.createElement('li');
     li.innerText = pl1;
     list1.appendChild(li);
+    
     const select = document.getElementById('select9');
-    select.setAttribute('disabled',true);
+    select.setAttribute('disabled',true);   
 })
-
+*/
