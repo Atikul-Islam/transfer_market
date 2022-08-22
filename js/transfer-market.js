@@ -100,4 +100,27 @@ document.getElementById('calculate-total').addEventListener('click',function(){
     const totalAmount = totalInput.innerText;
 
     totalInput.innerText = totalplayerexpensesInt + managerAmountInt + coachAmountInt;
+
+    inputValidation();
 })
+
+function inputValidation() {
+    const inputFields = document.getElementsByClassName("input");
+    for (const inputField of inputFields) {
+      const inputValue = inputField.value;
+      if (isNaN(inputValue)) {
+        alert("Input Numbers Only");
+        return true;
+      } else if (inputValue < 0) {
+        alert("Invalid Input");
+        return true;
+      } else if (inputValue === "") {
+        alert("Input Field Can not Be Empty");
+        return true;
+      }
+    }
+  }
+  
+ 
+    
+      
