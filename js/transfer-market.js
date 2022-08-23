@@ -1,5 +1,6 @@
-const selectedPlayerArray = [];
+// Function for add element in Selected List
 
+const selectedPlayerArray = [];
 
 function playerList(player){
     
@@ -13,59 +14,28 @@ function playerList(player){
             selectedList.appendChild(li);
             
         }
-    
+ 
 }
+
+// Function for select a element, alert & disabled
 
 function getSelected(element){
     const playerName = element.parentNode.children[1].innerText;
     if(selectedPlayerArray.length <5){
     selectedPlayerArray.push(playerName);
     document.getElementById('player-count').innerText = selectedPlayerArray.length;
+    element.setAttribute("id","select");
     }
     else{
         alert('You can not add more than 5 players')
     }
     playerList(selectedPlayerArray);
-
+    
+    element.disabled = true;
+    
 }
 
-document.getElementById('select1').addEventListener('click',function(){
-    const disableBtn = document.getElementById('select1');
-    disableBtn.setAttribute('disabled',true);
-})
-document.getElementById('select2').addEventListener('click',function(){
-    const disableBtn = document.getElementById('select2');
-    disableBtn.setAttribute('disabled',true);
-})
-document.getElementById('select3').addEventListener('click',function(){
-    const disableBtn = document.getElementById('select3');
-    disableBtn.setAttribute('disabled',true);
-})
-document.getElementById('select4').addEventListener('click',function(){
-    const disableBtn = document.getElementById('select4');
-    disableBtn.setAttribute('disabled',true);
-})
-document.getElementById('select5').addEventListener('click',function(){
-    const disableBtn = document.getElementById('select5');
-    disableBtn.setAttribute('disabled',true);
-})
-document.getElementById('select6').addEventListener('click',function(){
-    const disableBtn = document.getElementById('select6');
-    disableBtn.setAttribute('disabled',true);
-})
-document.getElementById('select7').addEventListener('click',function(){
-    const disableBtn = document.getElementById('select7');
-    disableBtn.setAttribute('disabled',true);
-})
-document.getElementById('select8').addEventListener('click',function(){
-    const disableBtn = document.getElementById('select8');
-    disableBtn.setAttribute('disabled',true);
-})
-document.getElementById('select9').addEventListener('click',function(){
-    const disableBtn = document.getElementById('select9');
-    disableBtn.setAttribute('disabled',true);
-})
-   
+// Code for calculate total Player expenses
 
 document.getElementById('total-player-cost').addEventListener('click',function(){
     const playerCountField = document.getElementById('player-count');
@@ -81,6 +51,8 @@ document.getElementById('total-player-cost').addEventListener('click',function()
     totalPlayerexpensesField.innerText = totalPlayerCost;
     
 })
+
+// Code for calculate total cost 
 
 document.getElementById('calculate-total').addEventListener('click',function(){
     const totalPlayerexpensesField = document.getElementById('total-player-expenses');
@@ -103,8 +75,9 @@ document.getElementById('calculate-total').addEventListener('click',function(){
 
     inputValidation();
 
-    
 })
+
+// Function for input validation 
 
 function inputValidation() {
     const inputFields = document.getElementsByClassName("input");
@@ -114,7 +87,7 @@ function inputValidation() {
         alert("Input Numbers Only");
         return true;
       } else if (inputValue < 0) {
-        alert("Invalid Input");
+        alert("Invalid Input, You Can't Add Negative Number");
         return true;
       } else if (inputValue === "") {
         alert("Input Field Can not Be Empty");
